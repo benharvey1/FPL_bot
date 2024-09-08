@@ -50,7 +50,7 @@ def predict_player(row, classifiers, regressors):
 
 def predict_next_gw(df, classifiers, regressors):
     """Make predictions for the next gw.
-    - Returns a list of dictionaries. Takes into account double/blank GWs."""
+    - Returns a list of dictionaries. """
     played_games = df[df['points'].notnull()]
     last_gw = played_games['GW'].max()
     next_gw = last_gw + 1
