@@ -107,7 +107,9 @@ deadline = web_service.get_deadline(next_GW)
 min_bench_points = 8    # Set this variable yourself. Gives the minimum required predicted points for the bench
                         # For high risk strategy choose low predicted points, for low risk choose high predicted points
 
-best_starting, best_bench, cost_transfers, predicted_points, bench_pred_points = team_optimisation.best_team_next_x_gws_modified(actual_data, appearance_classifiers, point_predictors, 1, current_team, free_transfers, current_squad_value, bank, min_bench_points)
+x = 1  # number of future GWs to determine best team for
+
+best_starting, best_bench, cost_transfers, predicted_points, bench_pred_points = team_optimisation.best_team_next_x_gws_modified(actual_data, appearance_classifiers, point_predictors, x, current_team, free_transfers, current_squad_value, bank, min_bench_points)
 captain, vice = team_optimisation.choose_captains(best_starting)
 
 new_team = best_starting + best_bench
