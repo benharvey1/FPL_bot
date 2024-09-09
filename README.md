@@ -13,4 +13,4 @@ Two machine learning models are trained; a classification model used to predict 
 The best team is determined by linear programming. We maximise the predicted points of the starting 11 subject to a variety of constraints (see `team_optimisation.py` for details). The problem is solved using the `pulp` package.
 
 ### Updating team
-Once the best team has been determined, the team for the user is updated with minimal user input. See `web_service.py` for details.
+Once the best team has been determined, the team is updated on the FPL website with minimal user input. See `web_service.py` for details.
