@@ -79,12 +79,12 @@ FWD_appearance_classifier = joblib.load('models/FWD_appearance_classifier.pkl')
 
 # Load the regressors for points prediction
 GK_lgbm = joblib.load('models/GK_lgbm.pkl')
-DEF_lgbm = joblib.load('models/DEF_lgbm.pkl')
+DEF_gb = joblib.load('models/DEF_reg_gb.pkl')
 MID_lgbm = joblib.load('models/MID_lgbm.pkl')
 FWD_lgbm = joblib.load('models/FWD_lgbm.pkl')
 
 appearance_classifiers = {'GK': GK_appearance_classifier, 'DEF': DEF_appearance_classifier, 'MID': MID_appearance_classifier, 'FWD': FWD_appearance_classifier}
-point_predictors = {'GK': GK_lgbm, 'DEF': DEF_lgbm, 'MID': MID_lgbm, 'FWD': FWD_lgbm}
+point_predictors = {'GK': GK_lgbm, 'DEF': DEF_gb, 'MID': MID_lgbm, 'FWD': FWD_lgbm}
 
 """
 3. Log in to fpl and get current squad info
