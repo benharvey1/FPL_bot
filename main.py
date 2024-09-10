@@ -153,7 +153,7 @@ if input("Do you want to make these changes? (y/n): ").strip().lower() == 'y':
         session = requests.Session()
         web_service.extract_cookies(session)
         web_service.make_transfers(session, transfers_object)
-        web_service.activate_chips_set_lineup(session, chip_object, team_id, new_lineup, captain, vice)
+        web_service.activate_chips_set_lineup(session, team_info, chip_object, team_id, new_lineup, captain, vice)
 
     else:
         print("Missed deadline!")
