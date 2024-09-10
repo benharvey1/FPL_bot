@@ -134,7 +134,7 @@ def extract_cookies(session):
 
     url = 'https://fantasy.premierleague.com/'
     print(f"Make sure you're logged in to the FPL website and go to following link: {url}")
-    cookies = input('Click on extensions and then EditThisCookie. Copy the cookies to the clipboard and paste here: ')
+    cookies = input('Click on extensions and then EditThisCookie. Copy the cookies to the clipboard and paste here (make sure to paste as one line): ')
 
     cookies_list = json.loads(cookies)  # convert pasted cookie string into list of dictionaries
     cookies_dict = {cookie['name']:cookie['value'] for cookie in cookies_list}
