@@ -249,7 +249,7 @@ def chip_in_use(team_info):
         
     return False
 
-def activate_chips_set_lineup(session, chip_object, team_id, new_lineup, captain_id, vice_captain_id):
+def activate_chips_set_lineup(session, team_info, chip_object, team_id, new_lineup, captain_id, vice_captain_id):
     "Activates chips and sets lineup for current GW on FPL website"
 
     url = f'https://fantasy.premierleague.com/api/my-team/{team_id}/'
@@ -263,8 +263,12 @@ def activate_chips_set_lineup(session, chip_object, team_id, new_lineup, captain
 
     if response.status_code == 200:
         print("chips activated and lineup updated successfully!")
+
+    elif response.status_code != 200 and json.loads(response.text) == team_info:
+        print("No changes needed")
+        
     else:
-        print("Failed to activate chips and update lineup:", response.text)
+        print("Error:", response.text)
 
 
 
