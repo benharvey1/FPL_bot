@@ -79,7 +79,7 @@ FWD_appearance_classifier = joblib.load('models/FWD_appearance_classifier.pkl')
 
 # Load the regressors for points prediction
 GK_lgbm = joblib.load('models/GK_lgbm.pkl')
-DEF_gb = joblib.load('models/DEF_reg_gb.pkl')
+DEF_gb = joblib.load('models/DEF_gb_reg.pkl')
 MID_lgbm = joblib.load('models/MID_lgbm.pkl')
 FWD_lgbm = joblib.load('models/FWD_lgbm.pkl')
 
