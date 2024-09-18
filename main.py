@@ -37,7 +37,7 @@ team_stats_previous = {1 : {'points': 2369, 'conceded': 1191}, 2: {'points': 168
                         15: {'points': 1854, 'conceded': 1577}, 16: {'points': 1353, 'conceded': 1805}, 17: {'points': 1270, 'conceded': 1954}, 
                         18: {'points': 1781, 'conceded': 1486}, 19: {'points': 1436, 'conceded': 1715}, 20: {'points': 1399, 'conceded': 1795}}
 
-current_data = r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\current_season_dataset.csv"
+current_data = 'data_preparation/current_season_dataset.csv'
 
 if os.path.exists(current_data):
     os.remove(current_data)
