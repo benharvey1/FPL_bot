@@ -72,16 +72,16 @@ actual_data.to_csv(current_data, index=False)
 """
 
 # Load the classifiers  for appearance prediction
-GK_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\GK_appearance_classifier.pkl")
-DEF_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\DEF_appearance_classifier.pkl")
-MID_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\MID_appearance_classifier.pkl")
-FWD_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\FWD_appearance_classifier.pkl")
+GK_appearance_classifier = joblib.load('models/GK_appearance_classifier.pkl')
+DEF_appearance_classifier = joblib.load('models/DEF_appearance_classifier.pkl')
+MID_appearance_classifier = joblib.load('models/MID_appearance_classifier.pkl')
+FWD_appearance_classifier = joblib.load('models/FWD_appearance_classifier.pkl')
 
 # Load the regressors for points prediction
-GK_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\GK_lgbm.pkl")
-DEF_gb = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\DEF_gb_reg.pkl")
-MID_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\MID_lgbm.pkl")
-FWD_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\FWD_lgbm.pkl")
+GK_lgbm = joblib.load('models/GK_lgbm.pkl')
+DEF_gb = joblib.load('modles/DEF_lgbm.pkl')
+MID_lgbm = joblib.load('models/MID_lgbm.pkl')
+FWD_lgbm = joblib.load('modles/FWD_lgbm.pkl')
 
 appearance_classifiers = {'GK': GK_appearance_classifier, 'DEF': DEF_appearance_classifier, 'MID': MID_appearance_classifier, 'FWD': FWD_appearance_classifier}
 point_predictors = {'GK': GK_lgbm, 'DEF': DEF_gb, 'MID': MID_lgbm, 'FWD': FWD_lgbm}
