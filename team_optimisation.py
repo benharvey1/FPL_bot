@@ -313,8 +313,7 @@ def determine_best_free_hit_modified(df, classifiers, regressors, min_bench_poin
     starting_11_vars = {player.player_ID: pulp.LpVariable(f'starting11_player_{player.player_ID}', cat='Binary') for player in players}
     bench_vars = {player.player_ID: pulp.LpVariable(f'bench_player_{player.player_ID}', cat='Binary') for player in players}
 
-    # Objective function: Maximize total predicted points for starting 11
-    squad_prob += pulp.lpSum([starting_11_vars[player.player_ID] * player.predicted_points for player in players])
+    starting_11_predicted_points = pulp.lpSum([starting_11_vars[player.player_ID] * player.predicted_points for player in players])
     
     # Constraints
 
@@ -355,7 +354,12 @@ def determine_best_free_hit_modified(df, classifiers, regressors, min_bench_poin
     
     # want bench players to still be quite good - implement variable constraint as to how many points bench must be predicted
     squad_prob += pulp.lpSum([bench_vars[player.player_ID] * player.predicted_points for player in players]) >= min_bench_points
-    
+
+    predicted_points_score = starting_11_predicted_points
+        
+    # Objective function: Maximize total predicted points of starting 11
+    squad_prob += predicted_points_score
+        
     # Solve the optimization problem
     squad_prob.solve()
 
@@ -467,9 +471,7 @@ def best_team_next_x_gws_modified(df, classifiers, regressors, x, current_team, 
     current_starting_11, current_bench = choose_starting_11(current_team)
     current_starting_11_predicted_points = pulp.lpSum([player.predicted_points for player in current_starting_11])
 
-    # Objective function: Maximize total predicted points of starting 11
     starting_11_predicted_points = pulp.lpSum([starting_11_vars[player.player_ID] * player.predicted_points for player in players])
-    squad_prob += starting_11_predicted_points
 
     # Constraints
     # 15 players in the squad, 11 in starting 11
@@ -519,6 +521,10 @@ def best_team_next_x_gws_modified(df, classifiers, regressors, x, current_team, 
     squad_prob += bench_predicted_points >= min_bench_points
 
     predicted_points_score = starting_11_predicted_points - 4*number_cost_transfers
+        
+    # Objective function: Maximize total predicted points of starting 11
+    squad_prob += predicted_points_score
+        
     # Solve the optimization problem
     squad_prob.solve()
 
