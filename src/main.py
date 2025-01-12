@@ -37,7 +37,7 @@ team_stats_previous = {1 : {'points': 2369, 'conceded': 1191}, 2: {'points': 168
                         15: {'points': 1854, 'conceded': 1577}, 16: {'points': 1353, 'conceded': 1805}, 17: {'points': 1270, 'conceded': 1954}, 
                         18: {'points': 1781, 'conceded': 1486}, 19: {'points': 1436, 'conceded': 1715}, 20: {'points': 1399, 'conceded': 1795}}
 
-current_data = r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\data\current_season_dataset.csv"
+current_data = 'data/current_season_dataset.csv'
 
 if os.path.exists(current_data):
     os.remove(current_data)
@@ -72,16 +72,16 @@ actual_data.to_csv(current_data, index=False)
 """
 
 # Load the classifiers  for appearance prediction
-GK_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\GK_appearance_classifier.pkl")
-DEF_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\DEF_appearance_classifier.pkl")
-MID_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\MID_appearance_classifier.pkl")
-FWD_appearance_classifier = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\FWD_appearance_classifier.pkl")
+GK_appearance_classifier = joblib.load('models/GK_appearance_classifier.pkl')
+DEF_appearance_classifier = joblib.load('models/DEF_appearance_classifier.pkl')
+MID_appearance_classifier = joblib.load('models/MID_appearance_classifier.pkl')
+FWD_appearance_classifier = joblib.load('models/FWD_appearance_classifier.pkl')
 
 # Load the regressors for points prediction
-GK_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\GK_lgbm.pkl")
-DEF_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\DEF_lgbm.pkl")
-MID_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\MID_lgbm.pkl")
-FWD_lgbm = joblib.load(r"C:\Users\harve\OneDrive\Documents\Python\VScodeprojects\FPLbot\FWD_lgbm.pkl")
+GK_lgbm = joblib.load('models/GK_lgbm.pkl')
+DEF_lgbm = joblib.load('models/DEF_lgbm.pkl')
+MID_lgbm = joblib.load('models/MID_lgbm.pkl')
+FWD_lgbm = joblib.load('models/FWD_lgbm.pkl')
 
 appearance_classifiers = {'GK': GK_appearance_classifier, 'DEF': DEF_appearance_classifier, 'MID': MID_appearance_classifier, 'FWD': FWD_appearance_classifier}
 point_predictors = {'GK': GK_lgbm, 'DEF': DEF_lgbm, 'MID': MID_lgbm, 'FWD': FWD_lgbm}
